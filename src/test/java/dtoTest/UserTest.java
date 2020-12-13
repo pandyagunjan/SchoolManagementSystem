@@ -47,6 +47,20 @@ public class UserTest {
         Assert.assertEquals(expected,actual);
     }
     @Test
+    public void setAndGetUserIdTest()
+    {
+        //Given
+        Integer expected = 125;
+
+        //When
+        user.setUserId(expected);
+        Integer actual = user.getUserId();
+
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
     public void setAndGetStaffIdTest()
     {
         //Given
@@ -76,6 +90,7 @@ public class UserTest {
     public void toStringTest()
     {
         //Given
+        user.setUserId(11);
         user.setUserName("DhruvP");
         user.setUserPassword("pass");
         user.setStaff(true);
@@ -83,7 +98,8 @@ public class UserTest {
         user.setStaffId(125);
 
         String expected = "User{" +
-                "userName='" + user.getUserName() + '\'' +
+                "userId=" + user.getUserId() +
+                ", userName='" + user.getUserName() + '\'' +
                 ", userPassword='" + user.getUserPassword() + '\'' +
                 ", isStaff=" + user.getStaff() +
                 ", staffId=" + user.getStaffId() +

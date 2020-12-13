@@ -46,6 +46,7 @@ public class UserDAO {
 
     public User extractCarFromResultSet(ResultSet resultSet) throws SQLException {
         User user = new User();
+        user.setUserId(resultSet.getInt("userId"));
         user.setUserName(resultSet.getString("userName"));
         user.setUserPassword(resultSet.getString("userPassword"));
         user.setStaff(Boolean.valueOf(resultSet.getString("isStaff")));

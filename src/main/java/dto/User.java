@@ -1,12 +1,21 @@
 package dto;
 
 public class User {
+
+
+    Integer userId;
     String userName;
     String userPassword;
     Boolean isStaff;
     Integer staffId;
     Integer studentId;
+    public Integer getUserId() {
+        return userId;
+    }
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
     public String getUserName() {
         return userName;
     }
@@ -50,7 +59,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", isStaff=" + isStaff +
                 ", staffId=" + staffId +

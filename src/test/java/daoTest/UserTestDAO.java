@@ -20,6 +20,7 @@ public class UserTestDAO {
     @Test
     public void getUserTest() throws SQLException {
         //Given
+        user.setUserId(11);
         user.setUserName("GunjanP");
         user.setUserPassword("test");
         user.setStaff(false);
