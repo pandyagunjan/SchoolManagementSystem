@@ -19,3 +19,7 @@ insert into users (userName, userPassword, isStaff, staffId, studentId) values (
 insert into users (userName, userPassword, isStaff, staffId, studentId) values ('SiouxC', 'gGmhnpqkJh', 0, 9, 0);
 insert into users (userName, userPassword, isStaff, staffId, studentId) values ('IsraelM', 'mLnRqiltzLOa', 1, 10, 0);
 insert into users (userName, userPassword, isStaff, staffId, studentId) values ('GunjanP', 'test', 0, 101, 0);
+
+
+
+insert into user (USER_ID,IS_STAFF,STAFF_ID,STUDENT_ID,USER_NAME,USER_PASSWORD) values (1,1,1,0,'gunjan','werewr');
