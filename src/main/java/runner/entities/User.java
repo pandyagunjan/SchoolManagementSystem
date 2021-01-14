@@ -1,26 +1,35 @@
 package runner.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
+
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String userName;
     String userPassword;
+    @Column(name= "isStaff")
     Boolean isStaff;
     Integer staffId;
+   // @OneToOne(cascade = ALL, fetch = FetchType.EAGER)
+   // Staff staff;
+    //Look into this
     Integer studentId;
 
- public Long getId() {
-  return id;
- }
 
- public void setId(Long id) {
-  this.id = id;
- }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getUserName() {
         return userName;

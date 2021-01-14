@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import runner.entities.User;
 import runner.services.UserServices;
 
-import java.util.Optional;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 @RequestMapping("/user")
 @RestController
 public class UserController {
@@ -18,26 +15,34 @@ public class UserController {
 
     @GetMapping(value = "/fetch/{id}")
     public ResponseEntity<?> readById(@PathVariable Long id)  {
-
         return new ResponseEntity<>(userServices.readUser(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/create")
-    public ResponseEntity<?> saveTheUser(@PathVariable User user) {
-
-        return new ResponseEntity<>(userServices.createUser(user), HttpStatus.OK);
+    public ResponseEntity<?> saveTheUser(@RequestBody User user) {
+        int result= userServices.createUser(user);
+        if( result == 0)
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        else
+         if(result ==1)
+            return new ResponseEntity<>("User already exist" , HttpStatus.ALREADY_REPORTED);
+         else
+            return new ResponseEntity<>("Bad Request", HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping(value = "/modify")
     public ResponseEntity<?> modifyTheUser(@PathVariable User user) {
-
         return new ResponseEntity<>(userServices.updateUser(user), HttpStatus.OK);
     }
     @DeleteMapping(value = "/remove/{id}")
     public ResponseEntity<?> deleteTheUser(@PathVariable Long id) {
-
-        return new ResponseEntity<>(userServices.removeTheUser(id), HttpStatus.OK);
+        boolean resultForDelete = userServices.removeTheUser(id);
+        if(resultForDelete)
+        return new ResponseEntity<>("User has been deleted", HttpStatus.OK);
+        else
+        return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
     }
+
     @GetMapping(value = "/home")
     public String displayHome() {
         return "Hello World";

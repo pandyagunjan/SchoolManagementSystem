@@ -6,20 +6,21 @@ import java.util.Date;
 @Entity
  public class Staff {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    @Column(nullable = false)
+    @Column(nullable = false,name="firstname")
     String firstName;
-    @Column(nullable = false)
+    @Column(nullable = false,name="lastname")
     String lastName;
-    @Column(nullable = false)
+    @Column(nullable = false,name="email")
     String email;
-    @Column(nullable = false)
+    @Column(nullable = false,name="gender")
     String gender;
-    @Column(nullable = false)
+    @Column(nullable = true,name="DOB")
     Date DOB;
-    @Column(nullable = true)
+    @Column(nullable = false,name="salary")
     Double salary;
-    @Column(nullable = false)
+    @Column(nullable = true,name="contactnumber")
     String contactNumber;
 
     public Staff() {

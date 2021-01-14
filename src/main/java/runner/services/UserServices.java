@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import runner.controllers.UserController;
 import runner.entities.User;
 import runner.repositories.UserRepo;
+
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,10 +17,19 @@ public class UserServices {
 
     private final static Logger logger = Logger.getLogger(UserController.class.getName());
 
-    public User createUser(User user)
+    public int createUser(User user)
     {
-        logger.log(Level.INFO, "User has been created!" + user.getId());
-        return userRepo.save(user);
+        logger.log(Level.INFO, "User has been created!" + user.getUserName());
+        List<User> users = fetchAll();
+        for(User userFromList : users)
+        {
+            if(userFromList.getUserName().equals(user.getUserName()))
+            {
+                return 1;
+            }
+        }
+         userRepo.save(user);
+         return 0; // User is successfully created
     }
     public User readUser(Long id)
     {
@@ -48,6 +59,10 @@ public class UserServices {
         }
         logger.log(Level.WARNING, "User not found , null is being returned");
         return false;
+    }
 
+    public List<User> fetchAll()
+    {
+        return userRepo.findAll();
     }
 }
