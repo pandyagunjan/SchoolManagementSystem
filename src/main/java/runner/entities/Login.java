@@ -7,20 +7,20 @@ import javax.persistence.*;
 import static javax.persistence.CascadeType.ALL;
 
 @Entity
-public class User {
+public class Login {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String userName;
     String userPassword;
-    @Column(name= "isStaff")
-    Boolean isStaff;
-    Integer staffId;
-   // @OneToOne(cascade = ALL, fetch = FetchType.EAGER)
-   // Staff staff;
-    //Look into this
-    Integer studentId;
+//    @Column(name= "isStaff")
+//    Boolean isStaff;
+//    Integer staffId;
+//   // @OneToOne(cascade = ALL, fetch = FetchType.EAGER)
+//   // Staff staff;
+//    //Look into this
+//    Integer studentId;
 
 
     public Long getId() {
@@ -47,27 +47,27 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public Boolean getStaff() {
-        return isStaff;
-    }
-
-    public void setStaff(Boolean staff) {
-        isStaff = staff;
-    }
-
-    public Integer getStaffId() {
-        return staffId;
-    }
-
-    public void setStaffId(Integer staffId) {
-        this.staffId = staffId;
-    }
-
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
+//    public Boolean getStaff() {
+//        return isStaff;
+//    }
+//
+//    public void setStaff(Boolean staff) {
+//        isStaff = staff;
+//    }
+//
+//    public Integer getStaffId() {
+//        return staffId;
+//    }
+//
+//    public void setStaffId(Integer staffId) {
+//        this.staffId = staffId;
+//    }
+//
+//    public Integer getStudentId() {
+//        return studentId;
+//    }
+//
+//    public void setStudentId(Integer studentId) {
+//        this.studentId = studentId;
+//    }
 }

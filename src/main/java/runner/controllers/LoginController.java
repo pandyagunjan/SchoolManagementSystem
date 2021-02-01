@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import runner.entities.User;
-import runner.services.UserServices;
+import runner.entities.Login;
+import runner.services.LoginServices;
 
 @RequestMapping("/user")
 @RestController
-public class UserController {
+public class LoginController {
     @Autowired
-    private UserServices userServices;
+    private LoginServices userServices;
 
     @GetMapping(value = "/fetch/{id}")
     public ResponseEntity<?> readById(@PathVariable Long id)  {
@@ -19,10 +19,10 @@ public class UserController {
     }
 
     @PostMapping(value = "/create")
-    public ResponseEntity<?> saveTheUser(@RequestBody User user) {
-        int result= userServices.createUser(user);
+    public ResponseEntity<?> saveTheUser(@RequestBody Login login) {
+        int result= userServices.createUser(login);
         if( result == 0)
-            return new ResponseEntity<>(user, HttpStatus.OK);
+            return new ResponseEntity<>(login, HttpStatus.OK);
         else
          if(result ==1)
             return new ResponseEntity<>("User already exist" , HttpStatus.ALREADY_REPORTED);
@@ -31,8 +31,8 @@ public class UserController {
     }
 
     @PutMapping(value = "/modify")
-    public ResponseEntity<?> modifyTheUser(@PathVariable User user) {
-        return new ResponseEntity<>(userServices.updateUser(user), HttpStatus.OK);
+    public ResponseEntity<?> modifyTheUser(@RequestBody Login login) {
+        return new ResponseEntity<>(userServices.updateUser(login), HttpStatus.OK);
     }
     @DeleteMapping(value = "/remove/{id}")
     public ResponseEntity<?> deleteTheUser(@PathVariable Long id) {
