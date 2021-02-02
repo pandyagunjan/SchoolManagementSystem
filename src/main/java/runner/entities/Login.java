@@ -1,5 +1,6 @@
 package runner.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -12,13 +13,15 @@ public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    String userName;
-    String userPassword;
+    String username;
+    String password;
 //    @Column(name= "isStaff")
 //    Boolean isStaff;
 //    Integer staffId;
-//   // @OneToOne(cascade = ALL, fetch = FetchType.EAGER)
-//   // Staff staff;
+@JsonBackReference(value = "staff")
+@OneToOne
+@PrimaryKeyJoinColumn
+    Staff staff;
 //    //Look into this
 //    Integer studentId;
 
@@ -31,22 +34,29 @@ public class Login {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public Staff getStaff() {
+        return staff;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 //    public Boolean getStaff() {
 //        return isStaff;
 //    }

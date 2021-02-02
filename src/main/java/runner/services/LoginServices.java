@@ -19,11 +19,11 @@ public class LoginServices {
 
     public int createUser(Login login)
     {
-        logger.log(Level.INFO, "User has been created!" + login.getUserName());
+        logger.log(Level.INFO, "User has been created!" + login.getUsername());
         List<Login> logins = fetchAll();
         for(Login loginFromList : logins)
         {
-            if(loginFromList.getUserName().equals(login.getUserName()))
+            if(loginFromList.getUsername().equals(login.getUsername()))
             {
                 return 1;
             }

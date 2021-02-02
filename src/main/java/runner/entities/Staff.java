@@ -28,7 +28,7 @@ import static javax.persistence.CascadeType.ALL;
     String contactNumber;
 
    @JsonBackReference(value = "login")
-   @OneToOne(mappedBy = "customer", cascade = ALL,fetch = FetchType.EAGER)
+   @OneToOne(mappedBy = "staff", cascade = ALL,fetch = FetchType.EAGER)
    @PrimaryKeyJoinColumn //sharing primary key with user login since creating a new user requires a login anyways
    private Login login;
 
