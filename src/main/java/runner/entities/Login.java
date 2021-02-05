@@ -15,15 +15,12 @@ public class Login {
     Long id;
     String username;
     String password;
-//    @Column(name= "isStaff")
-//    Boolean isStaff;
-//    Integer staffId;
+
 @JsonBackReference(value = "staff")
 @OneToOne
-@PrimaryKeyJoinColumn
-    Staff staff;
-//    //Look into this
-//    Integer studentId;
+//@PrimaryKeyJoinColumn
+//@JoinColumn//(name = "staff_id")
+   private Staff staff;
 
 
     public Long getId() {

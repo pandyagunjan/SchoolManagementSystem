@@ -12,24 +12,17 @@ import static javax.persistence.CascadeType.ALL;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    @Column(nullable = false,name="firstname")
     String firstName;
-    @Column(nullable = false,name="lastname")
     String lastName;
-    @Column(nullable = false,name="email")
     String email;
-    @Column(nullable = false,name="gender")
     String gender;
-    @Column(nullable = true,name="DOB")
     Date DOB;
-    @Column(nullable = false,name="salary")
     Double salary;
-    @Column(nullable = true,name="contactnumber")
     String contactNumber;
 
-   @JsonBackReference(value = "login")
-   @OneToOne(mappedBy = "staff", cascade = ALL,fetch = FetchType.EAGER)
-   @PrimaryKeyJoinColumn //sharing primary key with user login since creating a new user requires a login anyways
+   @JsonBackReference(value = "staff")
+   @OneToOne(cascade = ALL,fetch = FetchType.EAGER)
+ //  @PrimaryKeyJoinColumn //sharing primary key with user login since creating a new user requires a login anyways
    private Login login;
 
    public Staff() {
