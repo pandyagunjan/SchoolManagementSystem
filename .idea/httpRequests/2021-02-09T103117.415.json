@@ -1,0 +1,7 @@
+{
+  "timestamp": "2021-02-09T15:31:16.979+00:00",
+  "status": 415,
+  "error": "Unsupported Media Type",
+  "message": "",
+  "path": "/staff/create"
+}

@@ -8,15 +8,42 @@ import java.util.Date;
 import static javax.persistence.CascadeType.ALL;
 
 @Entity
+@Table(name= "Staff" ,
+       uniqueConstraints = {
+        @UniqueConstraint(name="staff_email_unique",columnNames="email")
+       })
  public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
+
+    @Column(
+            name="first_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     String firstName;
+
+    @Column(
+            name="last_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     String lastName;
+
+    @Column(
+            name="email",
+            nullable = false,
+            columnDefinition = "TEXT"//,
+          //  unique = true
+    )
     String email;
+
     String gender;
     Date DOB;
+
+
+    //private Integer age;
     Double salary;
     String contactNumber;
 

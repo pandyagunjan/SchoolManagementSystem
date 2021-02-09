@@ -1,0 +1,16 @@
+POST http://localhost:8090/staff/create
+Content-Type:application/json
+
+{
+    "firstName": "Gunjan",
+    "lastName": "Pandya",
+    "email": "gpandya@gmail.com",
+    "gender": "F",
+    "salary": "1500.52",
+    "contactNumber": "5555555454",
+    "dob": "2012-05-05",
+    "login": {
+        "username": "toyym",
+        "password": "c51ChDMn"
+    }
+}

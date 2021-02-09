@@ -1,0 +1,57 @@
+POST http://localhost:8090/staff/create
+Content-Type: application/json
+
+{
+    "firstName": "Gunjan",
+    "lastName": "Pandya",
+    "email": "gpandya@gmail.com",
+    "gender": "F",
+    "salary": "1500.52",
+    "contactNumber": "5555555454",
+    "dob": "2012-05-05",
+    "login": {
+        "username": "toyym",
+        "password": "c51ChDMn"
+    }
+}
+
+<> 2021-02-09T103338.208.txt
+
+###
+
+POST http://localhost:8090/staff/create
+Content-Type: application/json
+{:
+    "firstName": "Gunjan",
+    "lastName": "Pandya",
+    "email": "gpandya@gmail.com",
+    "gender": "F",
+    "salary": "1500.52",
+    "contactNumber": "5555555454",
+    "dob": "2012-05-05",
+    "login":
+
+<> 2021-02-09T103309.400.html
+
+###
+
+POST http://localhost:8090/staff/create
+
+{
+    "firstName": "Gunjan",
+    "lastName": "Pandya",
+    "email": "gpandya@gmail.com",
+    "gender": "F",
+    "salary": "1500.52",
+    "contactNumber": "5555555454",
+    "dob": "2012-05-05",
+    "login": {
+        "username": "toyym",
+        "password": "c51ChDMn"
+    }
+}
+
+<> 2021-02-09T103117.415.json
+
+###
+
