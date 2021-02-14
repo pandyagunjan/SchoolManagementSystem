@@ -24,27 +24,27 @@ public class StaffController {
 
     @PostMapping(value = "/create")
     public ResponseEntity<?> saveTheUser(@RequestBody Staff staff) {
-        int result= staffServices.createUser(staff);
+        int result= staffServices.createStaff(staff);
         if( result == 0)
             return new ResponseEntity<>(staff, HttpStatus.OK);
         else
         if(result ==1)
-            return new ResponseEntity<>("User already exist" , HttpStatus.ALREADY_REPORTED);
+            return new ResponseEntity<>("Staff already exist" , HttpStatus.ALREADY_REPORTED);
         else
             return new ResponseEntity<>("Bad Request", HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping(value = "/modify")
     public ResponseEntity<?> modifyTheUser(@RequestBody Staff staff) {
-        return new ResponseEntity<>(staffServices.updateUser(staff), HttpStatus.OK);
+        return new ResponseEntity<>(staffServices.updateStaff(staff), HttpStatus.OK);
     }
     @DeleteMapping(value = "/remove/{id}")
     public ResponseEntity<?> deleteTheUser(@PathVariable Long id) {
-        boolean resultForDelete = staffServices.removeTheUser(id);
+        boolean resultForDelete = staffServices.removeTheStaff(id);
         if(resultForDelete)
-            return new ResponseEntity<>("User has been deleted", HttpStatus.OK);
+            return new ResponseEntity<>("Staff has been deleted", HttpStatus.OK);
         else
-            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Staff not found", HttpStatus.NOT_FOUND);
     }
 
     @GetMapping(value = "/home")

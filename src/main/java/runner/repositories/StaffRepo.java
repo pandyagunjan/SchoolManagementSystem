@@ -11,7 +11,6 @@ import java.util.List;
 public interface StaffRepo extends CrudRepository<Staff,Long> {
 
 Staff findStaffById(Long Id);
-Staff findStaffByLoginUsername(String name);
 List<Staff> findAll();
 
 
